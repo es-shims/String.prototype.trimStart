@@ -3,6 +3,14 @@ This is a polyfill for the proposed `String` API `trimStart` by [@sebmarkbage](h
 
 As the [proposal](https://github.com/tc39/proposal-string-left-right-trim) says this API will trim the whitespaces from a string just like the [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) function but only from the start/beginning of the string leaving any white space at the end. This is implemented by some browsers (like FireFox and Chrome) under the name [`trimLeft`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft) which is not a standard API by the ECMA.
 
+## Usage
+
+You can use it with the help of npm, just type the following command:
+
+```
+npm install string.prototype.trimstart
+```
+
 ## Example
 
 Here's a basic example for the usage of this API:
