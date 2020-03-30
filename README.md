@@ -1,33 +1,47 @@
-## Introduction
-This is a polyfill for the proposed `String` API `trimStart` by [@sebmarkbage](https://github.com/sebmarkbage), [@evilpie](https://github.com/evilpie/) and [@ljharb](https://github.com/ljharb).
+String.prototype.trimStart <sup>[![Version Badge][npm-version-svg]][package-url]</sup>
 
-As the [proposal](https://github.com/tc39/proposal-string-left-right-trim) says this API will trim the whitespaces from a string just like the [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) function but only from the start/beginning of the string leaving any white space at the end. This is implemented by some browsers (like FireFox and Chrome) under the name [`trimLeft`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft) which is not a standard API by the ECMA.
+[![Build Status][travis-svg]][travis-url]
+[![dependency status][deps-svg]][deps-url]
+[![dev dependency status][dev-deps-svg]][dev-deps-url]
+[![License][license-image]][license-url]
+[![Downloads][downloads-image]][downloads-url]
 
-## Usage
+[![npm badge][npm-badge-png]][package-url]
 
-You can use it with the help of npm, just type the following command:
+[![browser support][testling-svg]][testling-url]
 
+An ES2019-spec-compliant `String.prototype.trimStart` shim. Invoke its "shim" method to shim `String.prototype.trimStart` if it is unavailable.
+
+This package implements the [es-shim API](https://github.com/es-shims/api) interface. It works in an ES3-supported environment and complies with the [spec](http://www.ecma-international.org/ecma-262/6.0/#sec-object.assign). In an ES6 environment, it will also work properly with `Symbol`s.
+
+Most common usage:
+```js
+var trimStart = require('string.prototype.trimstart');
+
+assert(trimStart(' \t\na \t\n') === 'a \t\n');
+
+if (!String.prototype.trimStart) {
+	trimStart.shim();
+}
+
+assert(trimStart(' \t\na \t\n') === ' \t\na \t\n'.trimStart());
 ```
-npm install string.prototype.trimstart
-```
 
-## Example
+## Tests
+Simply clone the repo, `npm install`, and run `npm test`
 
-Here's a basic example for the usage of this API:
-
-```javascript
-var str = '   foo  ';
-str = str.trimStart();
-console.log(str.length); // 6
-console.log(str); // 'foo  '
-```
-
-## How it work
-
-This polyfill will fallback on the [`trimLeft`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/TrimLeft) if it's found, since they're doing the same thing, and if not it will do a work around with the help of [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) function.
-
-**Note**: for older browsers you need to polyfill [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim), I didn't do that because my target was browsers with the [`trim`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim) support already since this API is going to take sometime to get accepted.
-
-## License
-
-This project is under the MIT License.
+[package-url]: https://npmjs.com/package/string.prototype.trimstart
+[npm-version-svg]: http://vb.teelaun.ch/es-shims/String.prototype.trimStart.svg
+[travis-svg]: https://travis-ci.org/es-shims/String.prototype.trimStart.svg
+[travis-url]: https://travis-ci.org/es-shims/String.prototype.trimStart
+[deps-svg]: https://david-dm.org/es-shims/String.prototype.trimStart.svg
+[deps-url]: https://david-dm.org/es-shims/String.prototype.trimStart
+[dev-deps-svg]: https://david-dm.org/es-shims/String.prototype.trimStart/dev-status.svg
+[dev-deps-url]: https://david-dm.org/es-shims/String.prototype.trimStart#info=devDependencies
+[testling-svg]: https://ci.testling.com/es-shims/String.prototype.trimStart.png
+[testling-url]: https://ci.testling.com/es-shims/String.prototype.trimStart
+[npm-badge-png]: https://nodei.co/npm/string.prototype.trimstart.png?downloads=true&stars=true
+[license-image]: http://img.shields.io/npm/l/string.prototype.trimstart.svg
+[license-url]: LICENSE
+[downloads-image]: http://img.shields.io/npm/dm/string.prototype.trimstart.svg
+[downloads-url]: http://npm-stat.com/charts.html?package=string.prototype.trimstart
