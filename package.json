@@ -1,7 +1,7 @@
 {
 	"name": "string.prototype.trimstart",
-	"version": "0.1.0",
-	"description": "polyfill for the proposed api String.prototype.trimStart",
+	"version": "1.0.0",
+	"description": "ES2019 spec-compliant String.prototype.trimStart shim.",
 	"main": "index.js",
 	"scripts": {
 		"lint": "eslint .",
